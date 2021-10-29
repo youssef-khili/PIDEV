@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="734.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tableView.TableViewController">
+    <stylesheets>
+        <URL value="@tableview.css" />
+    </stylesheets>
+   <children>
+      <Pane layoutY="116.0" prefHeight="3.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="80.0" />
+      <TableView fx:id="transTable" layoutX="64.0" layoutY="186.0" prefHeight="200.0" prefWidth="605.0">
+        <columns>
+          <TableColumn fx:id="idtr" maxWidth="70.0" prefWidth="70.0" style="-fx-alignment: center;" text="ID" />
+          <TableColumn fx:id="tptr" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="TYPE" />
+            <TableColumn fx:id="dptr" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="DEPART" />
+            <TableColumn fx:id="artr" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="ARRIVE" />
+            <TableColumn fx:id="trtr" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="TARIF" />
+            <TableColumn fx:id="edittr" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="EDIT" />
+        </columns>
+      </TableView>
+      <Text layoutX="14.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Moyens de transport" wrappingWidth="298.1367492675781">
+         <font>
+            <Font name="Bauhaus 93" size="32.0" />
+         </font>
+      </Text>
+      <HBox layoutX="64.0" layoutY="109.0" prefHeight="36.0" prefWidth="217.0">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#getAddView" prefHeight="36.0" prefWidth="76.0" style="-fx-background-color: #2196F3;" text="ADD" />
+            <Button mnemonicParsing="false" onMouseClicked="#refreshTable" prefHeight="36.0" prefWidth="77.0" style="-fx-background-color: #76FF03;" text="REFRESH" />
+            <Button mnemonicParsing="false" onMouseClicked="#print" prefHeight="36.0" prefWidth="71.0" style="-fx-background-color: #212121;" text="PRINT" textFill="#fafafa" />
+         </children>
+      </HBox>
+      <Button layoutX="682.0" layoutY="1.0" mnemonicParsing="false" onMouseClicked="#close" style="-fx-background-color: FF3D00;" text="CLOSE" />
+      <Button layoutX="592.0" layoutY="109.0" mnemonicParsing="false" onMouseClicked="#clientView" prefHeight="36.0" prefWidth="83.0" style="-fx-background-color: yellow;" text="Clinet View" />
+   </children>
+</AnchorPane>

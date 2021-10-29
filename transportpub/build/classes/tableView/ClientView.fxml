@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="320.0" prefWidth="490.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tableView.ClientViewController">
+    <stylesheets>
+        <URL value="@clientview.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="422.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#getCode" style="-fx-background-color: Yellow;" text="Here" />
+      <Text layoutX="239.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get your QR CODE from :" />
+      <TableView fx:id="clinetTable" layoutX="9.0" layoutY="106.0" prefHeight="200.0" prefWidth="460.0">
+        <columns>
+          <TableColumn fx:id="idtr" maxWidth="70.0" prefWidth="70.0" style="-fx-alignment: center;" text="ID" />
+          <TableColumn fx:id="tptr" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="TYPE" />
+            <TableColumn fx:id="dptr" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="DEPART" />
+            <TableColumn fx:id="artr" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="ARRIVE" />
+            <TableColumn fx:id="trtr" maxWidth="100.0" prefWidth="100.0" style="-fx-alignment: center;" text="TARIF" />
+        </columns>
+      </TableView>
+      <Button layoutX="14.0" layoutY="67.0" mnemonicParsing="false" onMouseClicked="#refreshClient" style="-fx-background-color: #76FF03;" text="Refresh" />
+   </children>
+</AnchorPane>
