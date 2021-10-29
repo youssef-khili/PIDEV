@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="595.0" prefWidth="1153.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestion.livraison.test.FXMLlivreurController">
+   <children>
+      <TextField fx:id="LIVnom" layoutX="333.0" layoutY="134.0" />
+      <TextField fx:id="LIVprenom" layoutX="333.0" layoutY="208.0" />
+      <TextField fx:id="LIVcin" layoutX="333.0" layoutY="281.0" />
+      <TextField fx:id="LIVtel" layoutX="333.0" layoutY="360.0" />
+      <TextField fx:id="LIVrate" layoutX="333.0" layoutY="434.0" />
+      <Label layoutX="158.0" layoutY="142.0" text="Nom:" />
+      <Label layoutX="158.0" layoutY="216.0" text="Prénom:" />
+      <Label layoutX="158.0" layoutY="289.0" text="Numéro de CIN:" />
+      <Label layoutX="158.0" layoutY="368.0" text="Numéro de télephone:" />
+      <Label layoutX="158.0" layoutY="442.0" text="Rate:" />
+      <Label layoutX="468.0" layoutY="28.0" text="Livreur" textFill="#0625d6">
+         <font>
+            <Font name="Bell MT Bold" size="54.0" />
+         </font>
+      </Label>
+      <Button layoutX="124.0" layoutY="512.0" mnemonicParsing="false" onAction="#Ajouterlivreur" prefHeight="43.0" prefWidth="108.0" text="Ajouter" />
+      <Button layoutX="290.0" layoutY="512.0" mnemonicParsing="false" onAction="#Supprimerlivreur" prefHeight="43.0" prefWidth="108.0" text="Supprimer" />
+      <Button layoutX="448.0" layoutY="512.0" mnemonicParsing="false" onAction="#Modifierlivreur" prefHeight="43.0" prefWidth="108.0" text="Modifier" />
+      <Button layoutX="801.0" layoutY="463.0" mnemonicParsing="false" onAction="#Afficherlivreur" prefHeight="43.0" prefWidth="108.0" text="Afficher" />
+      <TableView fx:id="LIVtab" layoutX="581.0" layoutY="161.0" onMouseClicked="#getSelected" prefHeight="240.0" prefWidth="494.0">
+        <columns>
+            <TableColumn fx:id="COLid_liv" prefWidth="75.0" text="id_livreur" />
+          <TableColumn fx:id="COLnom" prefWidth="75.0" text="Nom" />
+          <TableColumn fx:id="COLprenom" prefWidth="75.0" text="Prénom" />
+            <TableColumn fx:id="COLcin" prefWidth="75.0" text="N° CIN" />
+            <TableColumn fx:id="COLtel" prefWidth="128.0" text="N° de Télephone" />
+            <TableColumn fx:id="COLrate" prefWidth="65.0" text="rate" />
+        </columns>
+      </TableView>
+      <Button layoutX="1036.0" layoutY="534.0" mnemonicParsing="false" onAction="#buttonlivraison" prefHeight="31.0" prefWidth="78.0" text="Livraison" />
+   </children>
+</AnchorPane>
