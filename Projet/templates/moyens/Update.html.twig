@@ -1,0 +1,29 @@
+{% extends 'Template.html.twig' %}
+{% block body %}
+    <h1>               Update moyen de transport</h1>
+    {#  {{ form(f) }}#}
+    {{ form_start(f,{'attr':{'novalidate':'novalidate'}}) }}
+    <table>
+        <tr>
+            <td>{{ form_label(f.type,"Type") }}</td>
+            <td>{{ form_widget(f.type) }}</td>
+            <td>{{ form_errors(f.type) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.depart,"Depart") }}</td>
+            <td>{{ form_widget(f.depart) }}</td>
+            <td>{{ form_errors(f.depart) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.arrive,"Arrivé") }}</td>
+            <td>{{ form_widget(f.arrive) }}</td>
+            <td>{{ form_errors(f.arrive) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.tarif,"Tarif") }}</td>
+            <td>{{ form_widget(f.tarif) }}</td>
+            <td>{{ form_errors(f.tarif) }}</td>
+        </tr>
+    </table>
+    {{ form_end(f) }}
+{% endblock %}
