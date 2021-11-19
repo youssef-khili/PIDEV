@@ -1,0 +1,33 @@
+{%  extends 'ajouter.html.twig'%}
+{% block body%}
+    <h1>Modifier Publicite </h1>
+
+
+
+    {#  {{ form(f) }}#}
+    {{ form_start(f,{'attr':{'novalidate':'novalidate'}}) }}
+    <table>
+        <tr>
+            <td>{{ form_label(f.titre,"titre") }}</td>
+            <td>{{ form_widget(f.titre) }}</td>
+            <td>{{ form_errors(f.titre) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.description,"description") }}</td>
+            <td>{{ form_widget(f.description) }}</td>
+            <td>{{ form_errors(f.description) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.dureePub,"dureePub") }}</td>
+            <td>{{ form_widget(f.dureePub) }}</td>
+            <td>{{ form_errors(f.dureePub) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(f.tarif,"Tarif") }}</td>
+            <td>{{ form_widget(f.tarif) }}</td>
+            <td>{{ form_errors(f.tarif) }}</td>
+        </tr>
+    </table>
+    {{ form_end(f) }}
+{% endblock %}
+
