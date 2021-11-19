@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>Liste des utilisateurs</h1>
+<table border="1">
+    <tr>
+        <th>idUser</th>
+        <th>nomUser</th>
+        <th>prenomUser</th>
+        <th>email</th>
+        <th>numTel</th>
+        <th>username</th>
+        <th>password</th>
+        <th>depart</th>
+        <th>destination</th>
+        <th>cout</th>
+        <th>typeService</th>
+        <th>role</th>
+        <td>ModifierUtilisateur</td>
+        <td>SupprimerUtilisateur</td>
+    </tr>
+    <tr {% for i in utilisateur %}>
+        <td>{{ i.idUser }}</td>
+        <td>{{ i.nomUser }}</td>
+        <td>{{ i.prenomUser }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.numTel }}</td>
+        <td>{{ i.username }}</td>
+        <td>{{ i.password }}</td>
+        <td>{{ i.depart }}</td>
+        <td>{{ i.destination }}</td>
+        <td>{{ i.cout }}</td>
+        <td>{{ i.typeService }}</td>
+        <td>{{ i.role }}</td>
+        <td><a href="{{ path('update',{'idUser':i.idUser}) }}">ModifierUtilisateur</a></td>
+        <td><a href="{{ path('d',{'idUser':i.idUser}) }}">SupprimerUtilisateur</a></td>
+    </tr {% endfor %}>
+</table>
+
+</body>
+</html>
+{% endblock %}
