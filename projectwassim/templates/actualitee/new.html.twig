@@ -1,0 +1,15 @@
+{% extends 'backoffice.html.twig' %}
+
+{% block title %}New Actualitee{% endblock %}
+
+{% block body %}
+    <h1>Create new Actualitee</h1>
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    {{ include('actualitee/_form.html.twig') }}
+
+    <a href="{{ path('actualitee_index') }}">back to list</a>
+
+    {{ form_end(form) }}
+{% endblock %}
+
+

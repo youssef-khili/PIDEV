@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reclamationn index{% endblock %}
+
+{% block body %}
+    <h1>Reclamationn </h1>
+
+    <table class="table" border="2">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Sujet</th>
+                <th>Iduser</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reclamationn in reclamationns %}
+            <tr>
+                <td>{{ reclamationn.id }}</td>
+                <td>{{ reclamationn.date ? reclamationn.date|date('Y-m-d') : '' }}</td>
+                <td>{{ reclamationn.sujet }}</td>
+                <td>{{ reclamationn.iduser }}</td>
+                <td>
+                    <a href="{{ path('reclamationn_show', {'id': reclamationn.id}) }}">show</a>
+                    <a href="{{ path('reclamationn_edit', {'id': reclamationn.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('reclamationn_new') }}">Create new</a>
+{% endblock %}
