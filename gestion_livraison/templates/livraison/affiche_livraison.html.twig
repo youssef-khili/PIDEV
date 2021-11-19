@@ -1,0 +1,38 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<H1>List des livraisons</H1>
+<table border="1">
+    <tr>
+        <th>Id_livraison:</th>
+        <th>Depart:</th>
+        <th>Arrivé:</th>
+        <th>Type de l objet:</th>
+        <th>Emplacement et état:</th>
+        <th>Poids unitaire::</th>
+        <th>Tarif::</th>
+    </tr>
+    <tr {% for c in livraison %}>
+        <td>{{ c.id}}  </td>
+        <td>{{ c.depart}}  </td>
+        <td>{{ c.arrive}}</td>
+        <td>{{c.type_objet}}</td>
+        <td>{{c.emplacement_et_etat}}</td>
+        <td>{{c.poids_unitaire}}</td>
+        <td>{{c.tarif}}</td>
+        <td><a href=" {{ path('update',{'id':c.id })}}">update</a> </td>
+        <td><a href=" {{ path('d',{'id':c.id })}}">Delete</a> </td>
+    </tr {% endfor %}>
+</table>
+</body>
+</html>
+{% endblock %}

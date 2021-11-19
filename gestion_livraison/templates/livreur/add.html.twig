@@ -1,0 +1,34 @@
+{% extends 'bundle.html.twig' %}
+{% block body %}
+<h1> Ajout livreur </h1>
+{{ form_start(form) }}
+    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    <table>
+        <tr>
+            <td>{{ form_label(form.nom,"nom") }}</td>
+            <td>{{ form_widget(form.nom) }}</td>
+            <td>{{ form_errors(form.nom) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.prenom,"prenom") }}</td>
+            <td>{{ form_widget(form.prenom) }}</td>
+            <td>{{ form_errors(form.prenom) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.num_tel,"num_tel") }}</td>
+            <td>{{ form_widget(form.num_tel) }}</td>
+            <td>{{ form_errors(form.num_tel) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.cin,"cin") }}</td>
+            <td>{{ form_widget(form.cin) }}</td>
+            <td>{{ form_errors(form.cin) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.rate,"rate") }}</td>
+            <td>{{ form_widget(form.rate) }}</td>
+            <td>{{ form_errors(form.rate) }}</td>
+        </tr>
+    </table>
+{{ form_end(form) }}
+{% endblock %}

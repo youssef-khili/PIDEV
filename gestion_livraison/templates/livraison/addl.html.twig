@@ -1,0 +1,39 @@
+{% extends 'back.html.twig' %}
+{% block body %}
+<h1> Ajout livraison </h1>
+{{ form_start(form) }}
+    {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    <table>
+        <tr>
+            <td>{{ form_label(form.depart,"depart") }}</td>
+            <td>{{ form_widget(form.depart) }}</td>
+            <td>{{ form_errors(form.depart) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.arrive,"arrive") }}</td>
+            <td>{{ form_widget(form.arrive) }}</td>
+            <td>{{ form_errors(form.arrive) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.type_objet,"type_objet") }}</td>
+            <td>{{ form_widget(form.type_objet) }}</td>
+            <td>{{ form_errors(form.type_objet) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.emplacement_et_etat,"emplacement_et_etat") }}</td>
+            <td>{{ form_widget(form.emplacement_et_etat) }}</td>
+            <td>{{ form_errors(form.emplacement_et_etat) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.poids_unitaire,"poids_unitaire") }}</td>
+            <td>{{ form_widget(form.poids_unitaire) }}</td>
+            <td>{{ form_errors(form.poids_unitaire) }}</td>
+        </tr>
+        <tr>
+            <td>{{ form_label(form.tarif,"Tarif") }}</td>
+            <td>{{ form_widget(form.tarif) }}</td>
+            <td>{{ form_errors(form.tarif) }}</td>
+        </tr>
+    </table>
+{{ form_end(form) }}
+{% endblock %}
