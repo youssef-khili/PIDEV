@@ -1,0 +1,39 @@
+{% extends 'Template.html.twig' %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0,">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <tittle>Moyens</tittle>
+</head>
+<body>
+<h1>Liste Des Moyen de Transport Publique</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Type</th>
+        <th>Depart</th>
+        <th>Arrive</th>
+        <th>Tarif</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+
+    </tr>
+    <tr{% for m in moyens %}>
+        <td>{{ m.id }}</td>
+        <td>{{ m.type }}</td>
+        <td>{{ m.depart }}</td>
+        <td>{{ m.arrive }}</td>
+        <td>{{ m.tarif }}</td>
+        <td><a href="{{ path('update',{'id':m.id}) }}">Update</a></td>
+        <td><a href="{{ path('delete',{'id':m.id}) }}">Delete</a></td>
+
+    </tr{% endfor %}>
+</table>
+</body>
+</html>
+{% endblock %}
