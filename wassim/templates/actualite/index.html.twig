@@ -4,7 +4,10 @@
 
 {% block body %}
     <h1>Actualite index</h1>
-
+    <form action="{{ path('search') }}" method="post">
+        <label >Recherche</label>
+        <input type="text" name="search" ><input type="submit" value="Recherche">
+    </form>
     <table class="table" border="2">
         <thead>
             <tr>

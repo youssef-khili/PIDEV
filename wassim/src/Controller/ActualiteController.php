@@ -93,8 +93,30 @@ class ActualiteController extends AbstractController
         return $this->redirectToRoute('actualite_index', [], Response::HTTP_SEE_OTHER);
     }
 
+    /**
+     * @param ActualiteRepository $repository
+     * @param Request $request
+     * @return Response
+     * @Route("/",name="search",methods={"POST"})
+     */
 
 
+    public function search(ActualiteRepository $repository,Request $request)
+    {
+
+        if($request->get("search") == null)
+        {
+
+            $actualites = $repository -> findAll();
+        }else
+        {
+            $nsc =$request->get('search');
+            $actualites = $repository->findBy(array('titre'=>$nsc));
+        }
+
+        return $this -> render('actualite/index.html.twig',['actualites' =>$actualites]);
+
+    }
 
 
 
