@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ActualiteRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass=ActualiteRepository::class)
@@ -66,6 +67,11 @@ class Actualite
 
         return $this;
     }
+    public function getSlug():string
+    {
+        $slugify = new Slugify();
+    return  $slugify->slugify($this->titre);
+         }
 
     public function getType(): ?string
     {

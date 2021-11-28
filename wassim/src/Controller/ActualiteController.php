@@ -6,10 +6,12 @@ use App\Entity\Actualite;
 use App\Form\ActualiteType;
 use App\Repository\ActualiteRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 
 
@@ -18,6 +20,10 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ActualiteController extends AbstractController
 {
+
+
+
+
     /**
      * @Route("/", name="actualite_index", methods={"GET"})
      */
@@ -118,7 +124,22 @@ class ActualiteController extends AbstractController
         return $this -> render('actualite/index.html.twig',['actualites' =>$actualites]);
 
     }
+     /**
+ * @var ActualiteRepository
+ */
+private $repository;
 
-
-
+/**
+     *@Route("/actualite/{slug}-{id}", name="actualite.showw",requirements={"slug":"[a-z0-9\-]*"} )
+     * @return Response
+     * @param \App\Entity\Actualite $actualite
+     * @param mixed $id
+     */
+    public function showw(Actualite $actualite):Response{
+        
+return $this->render('actualite/showw.html.twig',['actualite'=>$actualite,'current-menu'=>'actualite']);
+    }
+  
 }
+
+

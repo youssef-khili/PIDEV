@@ -7,7 +7,7 @@
 {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
     {{ include('actualite/_form.html.twig') }}
 
-    {{ include('actualite/_form.html.twig') }}
+   
 
-    <a href="{{ path('actualite_index') }}">back to list</a>
+    <a href="{{ path('actualite_index') }}"> <button class="btn btn-primary">back to liste</button></a>
 {% endblock %}

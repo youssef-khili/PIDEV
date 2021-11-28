@@ -4,19 +4,22 @@
 
 {% block body %}
     <h1>Actualite  pour aujourd'hui</h1>
-
+  
    <div class="container">
        <h2>Actualité</h2>
+ 
        <div class="row flex">
-           {% for actualite in actualites%}
+        
             <div class="col-3">
+                 {% for actualite in actualites%}
                 <div class="card">
+                   
                     <div class="card-body">
                         <h5 class="card-titre">
-                            <a href="#">{{actualite.titre}}</a>
+                            <a href="{{path('actualite.showw',{id: actualite.id, slug: actualite.slug})}}">{{actualite.titre}}</a>
                         </h5>
                         <p class="card-text">{{actualite.type}}</p>
-                        <div class="text-primary">{{actualite.id}}</div>
+                        <div class="text-primary" style="font-weight:bolder;font-size:1rem;">{{actualite.id}}</div>
                     </div>
                 </div>
                 {%endfor%}
