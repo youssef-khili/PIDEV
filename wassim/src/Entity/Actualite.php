@@ -19,13 +19,7 @@ class Actualite
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $titre;
-
-   /**
-     * @ORM\Column(type="string", length=20)
-     *  @Assert\NotEqualTo("music")
+     *  *  @Assert\NotEqualTo("music")
      *  @Assert\NotBlank(message="remplir le champ svp !!!!")
     @Assert\Length(
      *      min = 3,
@@ -36,6 +30,13 @@ class Actualite
      *     type="string",
      *     message="The value {{ value }} is not a valid {{ type }}."
      * )
+     * @ORM\Column(type="string", length=255)
+     */
+    private $titre;
+
+   /**
+     * @ORM\Column(type="string")
+     
      */
     private $type;
 
@@ -43,6 +44,11 @@ class Actualite
      * @ORM\Column(type="date")
      */
     private $date;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $continu;
 
     public function getId(): ?int
     {
@@ -84,4 +90,28 @@ class Actualite
 
         return $this;
     }
+
+    /**
+     * The __toString method allows a class to decide how it will react when it is converted to a string.
+     *
+     * @return string
+     * @link https://php.net/manual/en/language.oop5.magic.php#language.oop5.magic.tostring
+     */
+    public function __toString()
+    {
+       return $this->getDate()+$this->getTitre()+$this->getType();
+    }
+
+    public function getContinu(): ?string
+    {
+        return $this->continu;
+    }
+
+    public function setContinu(string $continu): self
+    {
+        $this->continu = $continu;
+
+        return $this;
+    }
+
 }

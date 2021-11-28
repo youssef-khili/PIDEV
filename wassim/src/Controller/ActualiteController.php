@@ -30,6 +30,7 @@ class ActualiteController extends AbstractController
 
     /**
      * @Route("/new", name="actualite_new", methods={"GET", "POST"})
+
      */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {

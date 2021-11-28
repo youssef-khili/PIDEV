@@ -12,6 +12,7 @@
             <th>Titre</th>
             <th>Type</th>
             <th>Date</th>
+            <th>continu</th>
             <th>actions</th>
         </tr>
         </thead>
@@ -22,7 +23,7 @@
                 <td>{{ actualite.titre }}</td>
                 <td>{{ actualite.type }}</td>
                 <td>{{ actualite.date ? actualite.date|date('Y-m-d') : '' }}</td>
-
+                 <td>{{ actualite.continu }}</td>
             </tr>
         {% else %}
             <tr>

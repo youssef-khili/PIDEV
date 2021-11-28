@@ -15,6 +15,7 @@ class ActualiteType extends AbstractType
             ->add('titre')
             ->add('type')
             ->add('date')
+            ->add('continu')
         ;
     }
 
