@@ -3,28 +3,46 @@
 {% block title %}Actualite{% endblock %}
 
 {% block body %}
+
     <h1>Actualite  pour aujourd'hui</h1>
-  
-   <div class="container">
-       <h2>Actualité</h2>
- 
-       <div class="row flex">
-        
-            <div class="col-3">
-                 {% for actualite in actualites%}
-                <div class="card">
+ <head>
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+
+
+
+<div class="grid-container">
+ {% for actualite in actualites%}
+ <div class="card">
                    
                     <div class="card-body">
                         <h5 class="card-titre">
                             <a href="{{path('actualite.showw',{id: actualite.id, slug: actualite.slug})}}">{{actualite.titre}}</a>
                         </h5>
                         <p class="card-text">{{actualite.type}}</p>
-                        <div class="text-primary" style="font-weight:bolder;font-size:1rem;">{{actualite.id}}</div>
+                       <a href="{{ path('actualite_list') }}"> <button class="btn btn-primary">pdf</button></a>
+                      <div class="text-primary" style="font-weight:bolder;font-size:1rem;">{{actualite.id}}</div>
+                   
                     </div>
                 </div>
-                {%endfor%}
-            </div>
-       </div>
+                 {%endfor%}
+</div>
 
+</body>
 {% endblock %}
-

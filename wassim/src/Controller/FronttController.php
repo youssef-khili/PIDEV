@@ -3,13 +3,15 @@
 namespace App\Controller;
 use App\Entity\Actualite;
 use App\Form\ActualiteType;
-
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use App\Repository\ActualiteRepository;
 use Doctrine\ORM\Mapping\Id;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\All;
+use Symfony\Component\HttpFoundation\Request;
 
 class FronttController extends AbstractController
 {
@@ -23,21 +25,46 @@ class FronttController extends AbstractController
             'actualites' => $repository->findAll(),
         ]);
     }
-    
-  /**
- * @var ActualiteRepository
- */
-private $repository;
+   
+     /**
+          * @Route("/list",name="actualite_list",methods={"GET"})
+          */
+          public function listP(ActualiteRepository $actualiteRepository)
+          {
+            $pdfOptions = new Options();
+        $pdfOptions->set('defaultFont', 'Arial');
+        
+        // Instantiate Dompdf with our options
+        $dompdf = new Dompdf($pdfOptions);
+        $actualite=$actualiteRepository->findAll();
+        // Retrieve the HTML generated in our twig file
+        $html = $this->renderView('frontt/listP.html.twig', [
+            'actualites' => $actualite,
+        ]);
+        
+        // Load HTML to Dompdf
+        $dompdf->loadHtml($html);
+        
+        // (Optional) Setup the paper size and orientation 'portrait' or 'portrait'
+        $dompdf->setPaper('A4', 'portrait');
 
-/**
-     *@Route("/frontt/{slug}-{id}", name="frontt.showw",requirements={"slug":"[a-z0-9\-]*"} )
-     * @return Response
-     */
-    public function showw(Actualite $actualite):Response{
-        $actualite=$this->repository->find($id);
-return $this->render('frontt/showw.html.twig',['actualite'=>$actualite,'current-menu'=>'actualite']);
+        // Render the HTML as PDF
+        $dompdf->render();
+
+        // Output the generated PDF to Browser (force download)
+        $dompdf->stream("mypdf.pdf", [
+            "Attachment" => true
+        ]);
+
+
+
+
+
+
+            
+    
     }
-     
 
 }
+
 

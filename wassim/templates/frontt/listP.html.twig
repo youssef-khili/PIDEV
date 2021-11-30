@@ -1,0 +1,74 @@
+
+
+{% block body %}
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #2196F3;
+  padding: 10px;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+</style>
+     <table class="table" border="2">
+        <thead>
+            <tr>
+            
+                <th>Titre</th>
+                <th>Type</th>
+                <th>Date</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for actualite in actualites %}
+            <tr>
+                
+                <td>{{ actualite.titre }}</td>
+                <td>{{ actualite.type }}</td>
+                <td>{{ actualite.date ? actualite.date|date('Y-m-d') : '' }}</td>
+               
+               
+            </tr>
+            
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+
+            
+                        
+        {% endfor %}
+        </tbody>
+    </table>
+    <h4>article:</h4>
+        <table>
+        
+                {% for actualite in actualites %}
+
+           <tr>
+            <td> {{ actualite.continu }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+
+            
+                        
+        {% endfor %}
+           </table>
+ 
+       
+
+       
+    
+
+    
+{% endblock %}

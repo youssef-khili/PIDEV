@@ -7,6 +7,8 @@ use App\Form\ActualiteType;
 use App\Repository\ActualiteRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\Id;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -99,7 +101,7 @@ class ActualiteController extends AbstractController
 
         return $this->redirectToRoute('actualite_index', [], Response::HTTP_SEE_OTHER);
     }
-
+   
     /**
      * @param ActualiteRepository $repository
      * @param Request $request
@@ -135,11 +137,17 @@ private $repository;
      * @param \App\Entity\Actualite $actualite
      * @param mixed $id
      */
-    public function showw(Actualite $actualite):Response{
+
+     public function showw(Actualite $actualite):Response{
         
 return $this->render('actualite/showw.html.twig',['actualite'=>$actualite,'current-menu'=>'actualite']);
     }
-  
+
+
+
+    
+
 }
+
 
 
