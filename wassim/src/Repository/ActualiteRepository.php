@@ -47,4 +47,14 @@ class ActualiteRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function OrderByDateQB(){
+        return $this->createQueryBuilder('u')//select
+           ->orderBy('u.date','ASC')
+            ->getQuery()->getResult()
+            ;
+
+    }
+
 }
+

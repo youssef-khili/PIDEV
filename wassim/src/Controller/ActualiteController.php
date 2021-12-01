@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 
 
@@ -29,7 +30,7 @@ class ActualiteController extends AbstractController
     /**
      * @Route("/", name="actualite_index", methods={"GET"})
      */
-    public function index(ActualiteRepository $actualiteRepository): Response
+    public function index(ActualiteRepository $actualiteRepository, ): Response
     {
         return $this->render('actualite/index.html.twig', [
             'actualites' => $actualiteRepository->findAll(),
@@ -145,9 +146,7 @@ return $this->render('actualite/showw.html.twig',['actualite'=>$actualite,'curre
 
 
 
-    
+
+
 
 }
-
-
-

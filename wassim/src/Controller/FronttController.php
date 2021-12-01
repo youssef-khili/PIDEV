@@ -21,6 +21,7 @@ class FronttController extends AbstractController
      */
     public function index(ActualiteRepository $repository): Response
     {
+
         return $this->render('frontt/index.html.twig', [
             'actualites' => $repository->findAll(),
         ]);
@@ -64,6 +65,20 @@ class FronttController extends AbstractController
             
     
     }
+
+  
+   /**
+     * @param ActualiteRepository $repository
+     * @return Response
+     * @Route ("/ListQB",name="ListQB")
+     */
+    public function OrderByDateQB(ActualiteRepository $repository){
+        $actualite=$repository->OrderByDateQB();
+        return $this->render('frontt/index.html.twig',
+        ['actualites'=>$actualite]);
+
+
+}
 
 }
 
