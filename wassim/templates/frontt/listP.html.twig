@@ -16,6 +16,10 @@
   text-align: center;
 }
 </style>
+ <table class="table">
+    <script src="{{ asset('admin/js/jquery.min.js') }}"></script>
+<input type="text" id="search" class="form-control form-control-no-border mr-sm-2" placeholder="chercher produit" onkeyup="myFunction()">
+   
      <table class="table" border="2">
         <thead>
             <tr>
@@ -47,6 +51,35 @@
         {% endfor %}
         </tbody>
     </table>
+    <script>
+   <script>
+   function myFunction() {
+  // Declare variables
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("search");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("table");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    td1 = tr[i].getElementsByTagName("td")[2];
+    td2 = tr[i].getElementsByTagName("td")[3];
+    if (td || td1 ) {
+      txtValue = td.textContent || td.innerText;
+      txtValue1 = td1.textContent || td1.innerText;
+     
+      if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue1.toUpperCase().indexOf(filter) > -1 ) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+       
     <h4>article:</h4>
         <table>
         
@@ -67,7 +100,6 @@
  
        
 
-       
     
 
     

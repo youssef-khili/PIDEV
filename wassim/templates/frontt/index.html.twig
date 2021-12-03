@@ -5,10 +5,11 @@
 {% block body %}
 
     <h1>Actualite  pour aujourd'hui</h1>
-    <td>
+     <td>
                     <a class="btn btn-success" href=" {{ path('ListQB') }}"> Trie Par date </a>
                 </td>
  <head>
+ 
 <style>
 .grid-container {
   display: grid;
@@ -38,14 +39,23 @@
                         <h5 class="card-titre">
                             <a href="{{path('actualite.showw',{id: actualite.id, slug: actualite.slug})}}">{{actualite.titre}}</a>
                         </h5>
+
+                        <img src="{{asset("dist/img/articles.PNG")}}" class="img-circle elevation-2" alt="User Image">
+
                         <p class="card-text">{{actualite.type}}</p>
                        <a href="{{ path('actualite_list') }}"> <button class="btn btn-primary">pdf</button></a>
-                      <div class="text-primary" style="font-weight:bolder;font-size:1rem;">{{actualite.id}}</div>
-                   
+                        <a class="nav-link "  href="{{ path('contact') }}"><button class="btn btn-primary">contact reclamation</button></a>
+
+                        <div class="text-primary" style="font-weight:bolder;font-size:1rem;">{{actualite.id}}</div>
+
                     </div>
                 </div>
                  {%endfor%}
 </div>
 
 </body>
+
+           
 {% endblock %}
+
+

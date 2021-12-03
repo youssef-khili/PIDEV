@@ -23,8 +23,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
  */
 class ActualiteController extends AbstractController
 {
-
-
+  
 
 
     /**
