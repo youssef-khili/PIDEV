@@ -1,0 +1,14 @@
+<h1> recherche vehicule</h1>
+{{ form_start(search_form, {'attr':{'novalidate':'novalidate'}})}}
+
+        {{ form_label(search_form.type) }}
+        {{ form_widget(search_form.type) }}
+         {{ form_errors(search_form.type) }}
+        {{ form_label(search_form.nb_place) }}
+        {{ form_widget(search_form.nb_place) }}
+
+          {{ form_widget(search_for.nb_place) }}
+
+
+
+{{ form_end(form) }}

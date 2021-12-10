@@ -9,6 +9,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
 
 class LivraisonController extends AbstractController
@@ -34,6 +36,17 @@ class LivraisonController extends AbstractController
             ['livraison'=>$livraison]);
     }
     /**
+     * @param LivraisonRepository $repository
+     * @return Response
+     *@Route("/livraison/affiche_livraison_back",name="affichelivraisonn")
+     */
+    public function affiche_livraisonback(LivraisonRepository $repository){
+        // $repo=$this->getDoctrine()->getRepository(Livraison::class );
+        $livraison=$this->getDoctrine()->getRepository(livraison::class )->findAll();
+        return $this->render('livraison/affiche_livraison_back.html.twig',
+            ['livraison'=>$livraison]);
+    }
+    /**
      * @Route ("/supp/{id}",name="d")
      */
     function  Delete($id, LivraisonRepository $repository){
@@ -46,9 +59,9 @@ class LivraisonController extends AbstractController
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/livraison/add")
+     * @Route("/livraison/add" , name="ajouter_livraison")
      */
-    public function add (Request $request): Response
+    public function add ( Request $request): Response
     {
         $livraison = new livraison();
         $form = $this->createForm(LivraisonType::class, $livraison);
@@ -57,6 +70,9 @@ class LivraisonController extends AbstractController
             $em = $this->getDoctrine()->getManager();
             $em->persist($livraison);
             $em->flush();
+
+            $this->addFlash('success','votre livraison est ajoutée avec succés');
+
             return $this->redirectToRoute('affichelivraison');
         }
         return $this->render('livraison/addl.html.twig',

@@ -1,0 +1,64 @@
+{% extends 'front.html.twig' %}
+{% block body %}
+<div class="example-wrapper">
+
+
+    Rechercher le nom du livreur:
+
+</div>
+
+{{ form_start(form) }}
+
+<div class="example-wrapper" >
+    <div class="col">
+        {% if form.type is defined %}
+        {{ form_row(form.type) }}
+
+    </div>
+    {% endif %}
+
+    <div class="col">
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Rechercher</button>
+        </div>
+    </div>
+</div>
+<style type="text/css">
+    table {margin: 0 auto;}
+    table, th, td {
+        border: 2px #2b2b2b solid;
+        color: #2b2b2b;
+    }
+
+    table { background-color: #D3D3D3; }
+    th { background-color: #FD6C9E; }
+    a {
+        color: Black;
+    }
+
+</style>
+{{ form_end(form) }}
+<body>
+<H1>List des livreurs</H1>
+<table border="5" , class="example-wrapper">
+    <tr>
+        <th>Id_livreur:</th>
+        <th>Nom:</th>
+        <th>Prenom:</th>
+        <th>N° de tel:</th>
+        <th>N° cin:</th>
+        <th>Rate:</th>
+    </tr>
+    <tr {% for c in livreur %}>
+        <td>{{ c.id}}  </td>
+        <td>{{ c.nom}}  </td>
+        <td>{{ c.prenom}}</td>
+        <td>{{c.num_tel}}</td>
+        <td>{{c.cin}}</td>
+        <td>{{c.rate}}</td>
+        <td><a href=" {{ path('update',{'id':c.id })}}">update</a> </td>
+        <td><a href=" {{ path('d',{'id':c.id })}}">Delete</a> </td>
+    </tr {% endfor %}>
+</table>
+</body>
+{% endblock %}

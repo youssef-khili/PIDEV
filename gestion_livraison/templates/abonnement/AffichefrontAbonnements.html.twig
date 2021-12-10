@@ -1,0 +1,27 @@
+{% extends 'student/base-front.html.twig' %}
+    {% block body %}
+<title>AffichageAbonnement</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
+  <h2>Liste des abonnements</h2>
+  <p>Ceci est la liste des abonnements:</p>
+
+  <table border="1">
+      <tr class="w3-light-grey w3-hover-red">
+        <th>id abonnement</th>
+        <th>prix abonnement</th>
+        <th>Date Debut abonnement</th>
+        <th>Date Fin abonnement</th>
+        <th>Remise abonnement</th>
+      </tr>
+      <tr {% for a in abonnement%}>
+        <td> {{ a.id }} </td>
+        <td> {{ a.prixAbonnement }} </td>
+        <td> {{ a.dateDebut.format('d/m/Y') }} </td>
+        <td> {{ a.dateFin.format('d/m/Y') }} </td>
+        <td> {{ a.Remise }} </td>
+      </tr {% endfor %}>
+  </table>
+</body>
+{% endblock %}

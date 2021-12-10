@@ -132,6 +132,17 @@ class Livraison
 
         return $this;
     }
+    public function getType_objet(): ?string
+    {
+        return $this->type_objet;
+    }
+
+    public function setType_objet(string $type_objet): self
+    {
+        $this->type_objet = $type_objet;
+
+        return $this;
+    }
 
     public function getEmplacementEtEtat(): ?string
     {
@@ -144,6 +155,17 @@ class Livraison
 
         return $this;
     }
+    public function getEmplacement_et_etat(): ?string
+    {
+        return $this->emplacement_et_etat;
+    }
+
+    public function setEmplacement_et_etat(string $emplacement_et_etat): self
+    {
+        $this->emplacement_et_etat = $emplacement_et_etat;
+
+        return $this;
+    }
 
     public function getPoidsUnitaire(): ?int
     {
@@ -151,6 +173,17 @@ class Livraison
     }
 
     public function setPoidsUnitaire(int $poids_unitaire): self
+    {
+        $this->poids_unitaire = $poids_unitaire;
+
+        return $this;
+    }
+    public function getPoids_unitaire(): ?int
+    {
+        return $this->poids_unitaire;
+    }
+
+    public function setPoids_unitaire(int $poids_unitaire): self
     {
         $this->poids_unitaire = $poids_unitaire;
 

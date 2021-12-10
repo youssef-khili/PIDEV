@@ -1,0 +1,53 @@
+{% extends 'front.html.twig' %}
+
+{% block body %}
+    <h1>LOGIN</h1>
+    {# {{ form(form) }} #}
+    {#  {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}#}
+
+<form>
+    <table>
+
+
+        <tr>
+            <td>{{ form_label(form.username) }}</td>
+            <td>{{ form_widget(form.username) }}</td>
+
+        </tr>
+        <tr>
+            <td>{{ form_label(form.password) }}</td>
+            <td>{{ form_widget(form.password) }}</td>
+
+        </tr>
+        {# <tr>
+
+            <td>{{ form_widget(form.Login) }}</td>
+
+        </tr> #}
+
+
+
+
+    </table>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/61a7461c9099530957f778a1/1flqmjoaa';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+    {#  {{ form_end(form) }}#}
+    {{ form_rest(form) }}
+
+</form>
+    <a class="btn btn-primary btn-xl text-uppercase" href="http://127.0.0.1:8000/backk">Login</a>
+    <a class="btn btn-primary btn-xl text-uppercase" href="http://127.0.0.1:8000/fronttt">Services</a>
+
+{% endblock %}
+
+

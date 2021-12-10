@@ -1,6 +1,23 @@
-{% extends 'back.html.twig' %}
+{% extends 'front.html.twig' %}
 {% block body %}
-<h1> Ajout livraison </h1>
+    <div class="masthead-heading text-uppercase">WELCOME TO WASSSALNI</div>
+    <a class="btn btn-primary btn-xl text-uppercase" href="http://127.0.0.1:8000/livraison/affiche_livraison">AFFICHER LES LIVRAISONS</a>
+    </div>
+    <style type="text/css">
+        table {margin: 0 auto;}
+        table, tr, td {
+            border: 2px #2b2b2b solid;
+            color: #2b2b2b;
+        }
+
+        table { background-color: #D3D3D3; }
+        tr { background-color: #FD6C9E; }
+        a {
+            color: Black;
+        }
+
+    </style>
+<h1> AJOUTER LIVRAISON </h1>
 {{ form_start(form) }}
     {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
     <table>

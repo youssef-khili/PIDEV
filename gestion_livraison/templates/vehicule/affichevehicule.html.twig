@@ -1,0 +1,80 @@
+{% extends 'front.html.twig' %}
+{% block body %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        table {margin: 0 auto;}
+        table, tr, td {
+            border: 2px #2b2b2b solid;
+            color: #2b2b2b;
+        }
+
+        table { background-color: #D3D3D3; }
+        tr { background-color: #FD6C9E; }
+        a {
+            color: Black;
+        }
+
+    </style>
+</head>
+<body>
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+
+<H1>List des vehicule</H1>
+<td>
+    <a class="btn btn-success"href="{{ path('vehiculetriiA') }}">trier ASC</a>
+</td>
+<td>
+    <a class="btn btn-success"href="{{ path('vehiculetriD') }}">trier DES</a>
+</td>
+<table class="table table-striped" >
+<input type="text" id="search" class="form-control" placeholder="Search">
+            <section class="jumbotron text-center">
+                <div class="container">
+            <div class="card-body table-responsive p-0">
+
+                <script src="{{ asset('js/jquery.min.js') }}"></script>
+
+    <tr>
+        <th>Id_Vehicule</th>
+        <th> type</th>
+        <th> matricule </th>
+        <th>nb</th>
+
+
+
+    </tr>
+    <tr {% for v in vehicule %}>
+        <td>{{ v.id_veh}}  </td>
+        <td>{{ v.type}}  </td>
+        <td>{{ v.matricule}}  </td>
+    <td>{{ v.nb_place}}  </td>
+
+
+
+     </tr {% endfor %}>
+    </table>
+    <!-- jQuery -->
+    <script src="{{ asset ('bundle/plugins/jquery/jquery.min.js')}}"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="{{ asset ('bundle/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    </body>
+</html>
+
+{% endblock %}

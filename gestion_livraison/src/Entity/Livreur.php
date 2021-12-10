@@ -23,7 +23,7 @@ class Livreur
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 3,
-     *      max = 10,
+     *      max = 15,
      *      minMessage = "le nom ne peux pas etre moin de {{ limit }} characters ",
      *      maxMessage = "le nom ne peux pas etre plus de {{ limit }} characters"
      * )
@@ -35,7 +35,7 @@ class Livreur
      * @Assert\NotBlank
      * @Assert\Length(
      *      min = 3,
-     *      max = 10,
+     *      max = 15,
      *      minMessage = "le prenom ne peux pas etre moin de {{ limit }} characters ",
      *      maxMessage = "le prenom ne peux pas etre plus de {{ limit }} characters"
      * )
@@ -60,7 +60,7 @@ class Livreur
      * @Assert\Positive
      * @Assert\NotBlank
      * @Assert\Length(
-     *      min = 8,
+     *      min = 7,
      *      max = 8,
      *      minMessage = "le CIN ne peux pas etre moin de {{ limit }} chiffre",
      *      maxMessage = "le CIN ne peux pas etre plus de {{ limit }} chiffre"

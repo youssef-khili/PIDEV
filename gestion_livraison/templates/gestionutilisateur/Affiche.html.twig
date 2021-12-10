@@ -1,0 +1,82 @@
+{% extends 'base2.html.twig' %}
+{% block body %}
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ asset('bundles/mercuryseriesflashy/css/flashy.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<table>
+    <td>
+        <h1>Liste des utilisateurs</h1>
+<form action="{{ path('rech') }}" method="post">
+    <label>Recherche</label>
+    <input type="text" name="search"><input type="submit" value="Recherche" class="btn btn-info">
+</form>
+   </td>
+    <td>
+        <a class="btn btn-success"href="{{ path('tri') }}">trier par nom</a>
+    </td>
+    <td>
+        <a class="btn btn-success"href="{{ path('trid') }}">trier par nom</a>
+    </td>
+
+
+
+</table>
+<table border="1">
+    <tr>
+        <th>idUser</th>
+        <th>nomUser</th>
+        <th>prenomUser</th>
+        <th>email</th>
+        <th>numTel</th>
+        <th>username</th>
+        <th>password</th>
+        <th>depart</th>
+        <th>destination</th>
+        <th>cout</th>
+        <th>typeService</th>
+        <th>role</th>
+        <td>ModifierUtilisateur</td>
+        <td>SupprimerUtilisateur</td>
+    </tr>
+    <tr {% for i in utilisateur %}>
+        <td>{{ i.idUser }}</td>
+        <td>{{ i.nomUser }}</td>
+        <td>{{ i.prenomUser }}</td>
+        <td>{{ i.email }}</td>
+        <td>{{ i.numTel }}</td>
+        <td>{{ i.username }}</td>
+        <td>{{ i.password }}</td>
+        <td>{{ i.depart }}</td>
+        <td>{{ i.destination }}</td>
+        <td>{{ i.cout }}</td>
+        <td>{{ i.typeService }}</td>
+        <td>{{ i.role }}</td>
+        <td><a href="{{ path('updatee',{'idUser':i.idUser}) }}"><button class="btn btn-primary">ModifierUtilisateur</button></a></td>
+        <td><a href="{{ path('ddd',{'idUser':i.idUser}) }}"><button class="btn btn-primary">SupprimerUtilisateur</button></a></td>
+    </tr {% endfor %}>
+</table>
+{% for message in app.flashes('mercuryseries_flashy_notification') %}
+    <script id="flashy-template" type="text/template">
+        <div class="flashy flashy--{{ message.type }}">
+            <a href="#" class="flashy__body" target="_blank"></a>
+        </div>
+    </script>
+
+    <script>
+        flashy("{{ message.message }}", "{{ message.link }}");
+    </script>
+{% endfor %}
+
+</body>
+</html>
+{% endblock %}

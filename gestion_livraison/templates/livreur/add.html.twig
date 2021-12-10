@@ -1,6 +1,23 @@
-{% extends 'bundle.html.twig' %}
+{% extends 'front.html.twig' %}
 {% block body %}
-<h1> Ajout livreur </h1>
+    <div class="masthead-heading text-uppercase">WELCOME TO WASSSALNI</div>
+    <a class="btn btn-primary btn-xl text-uppercase" href="http://127.0.0.1:8000/livreur/affiche_livreur">AFFICHER LES LIVREURS</a>
+    </div>
+    <style type="text/css">
+        table {margin: 0 auto;}
+        table, tr, td {
+            border: 2px #2b2b2b solid;
+            color: #2b2b2b;
+        }
+
+        table { background-color: #D3D3D3; }
+        tr { background-color: #FD6C9E; }
+        a {
+            color: Black;
+        }
+
+    </style>
+<h1> AJOUTER LIVREUR </h1>
 {{ form_start(form) }}
     {{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
     <table>
@@ -30,5 +47,6 @@
             <td>{{ form_errors(form.rate) }}</td>
         </tr>
     </table>
+
 {{ form_end(form) }}
 {% endblock %}

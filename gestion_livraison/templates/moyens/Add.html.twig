@@ -1,0 +1,29 @@
+{% extends 'Template3.html.twig' %}
+{% block body %}
+    <h1>               Ajouter moyen de transport</h1>
+{#  {{ form(form) }}#}
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+<table>
+    <tr>
+        <td>{{ form_label(form.type,"Type") }}</td>
+        <td>{{ form_widget(form.type) }}</td>
+        <td>{{ form_errors(form.type) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.depart,"Depart") }}</td>
+        <td>{{ form_widget(form.depart) }}</td>
+        <td>{{ form_errors(form.depart) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.arrive,"Arrivé") }}</td>
+        <td>{{ form_widget(form.arrive) }}</td>
+        <td>{{ form_errors(form.arrive) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.tarif,"Tarif") }}</td>
+        <td>{{ form_widget(form.tarif) }}</td>
+        <td>{{ form_errors(form.tarif) }}</td>
+    </tr>
+</table>
+{{ form_end(form) }}
+{% endblock %}

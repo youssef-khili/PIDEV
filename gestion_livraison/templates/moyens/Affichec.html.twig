@@ -1,0 +1,67 @@
+{% extends 'front.html.twig' %}
+{% block body %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0,">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Moyens</title>
+    </head>
+    <body>
+
+    <h1>Liste Des Moyen de Transport Publique</h1>
+    <form methode="post"  action="{{ path('rechercherdeg') }}">
+        <label>Recherche</label>
+        <input type="text" name="search"><input type="submit" value="Recherche" class="btn btn-info" >
+
+    </form>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+            <th>Depart</th>
+            <th>Arrive</th>
+            <th>Tarif</th>
+
+
+
+
+
+        </tr>
+        <tr{% for m in moyens %}>
+            <td>{{ m.id }}</td>
+            <td>{{ m.type }}</td>
+            <td>{{ m.depart }}</td>
+            <td>{{ m.arrive }}</td>
+            <td>{{ m.Tarif }}</td>
+
+
+
+        </tr{% endfor %}>
+    </table>
+    <a href ="{{ path('orderByDegre') }}"><button type="submit" class="btn btn-success btn-block">tarif Ascendant
+        </button> <a/>
+        <a href ="{{ path('orderByDegre2') }}"><button type="submit" class="btn btn-success btn-block">tarif descendant
+            </button> <a/>
+            <div class="masthead-heading text-uppercase">WELCOME TO WASSSALNI</div>
+            <a class="btn btn-primary btn-xl text-uppercase" href="http://127.0.0.1:8000/qr">reserver</a>
+            </div>
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/61a74a5d53b398095a66ebb1/1flqnkvia';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+    </body>
+    </html>
+{% endblock %}

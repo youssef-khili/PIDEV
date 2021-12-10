@@ -1,0 +1,71 @@
+{% extends 'base2.html.twig' %}
+
+{% block body %}
+<h1>Ajout utilisateur</h1>
+{# {{ form(form) }} #}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+<table>
+
+    <tr>
+        <td>{{ form_label(form.nomUser) }}</td>
+        <td>{{ form_widget(form.nomUser) }}</td>
+        <td>{{ form_errors(form.nomUser) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.prenomUser) }}</td>
+        <td>{{ form_widget(form.prenomUser) }}</td>
+        <td>{{ form_errors(form.prenomUser) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.email) }}</td>
+        <td>{{ form_widget(form.email) }}</td>
+        <td>{{ form_errors(form.email) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.numTel) }}</td>
+        <td>{{ form_widget(form.numTel) }}</td>
+        <td>{{ form_errors(form.numTel) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.username) }}</td>
+        <td>{{ form_widget(form.username) }}</td>
+        <td>{{ form_errors(form.username) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.password) }}</td>
+        <td>{{ form_widget(form.password) }}</td>
+        <td>{{ form_errors(form.password) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.depart) }}</td>
+        <td>{{ form_widget(form.depart) }}</td>
+        <td>{{ form_errors(form.depart) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.destination ) }}</td>
+        <td>{{ form_widget(form.destination ) }}</td>
+        <td>{{ form_errors(form.destination ) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.cout) }}</td>
+        <td>{{ form_widget(form.cout) }}</td>
+        <td>{{ form_errors(form.cout) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.typeService) }}</td>
+        <td>{{ form_widget(form.typeService) }}</td>
+        <td>{{ form_errors(form.typeService) }}</td>
+    </tr>
+    <tr>
+        <td>{{ form_label(form.role) }}</td>
+        <td>{{ form_widget(form.role) }}</td>
+        <td>{{ form_errors(form.role) }}</td>
+    </tr>
+
+
+</table>
+{{ form_end(form) }}
+{% endblock %}
+
+

@@ -1,0 +1,46 @@
+{% extends 'backoffcie.html.twig' %}
+
+{% block title %}Actualite {% endblock %}
+
+{% block body %}
+    <h1>Actualite index</h1>
+    <form action="{{ path('search') }}" method="post">
+        <label >Recherche</label>
+        <input type="text" name="search" ><input type="submit" value="Recherche">
+    </form>
+    
+    <table class="table" border="2">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>continu</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for actualite in actualites %}
+            <tr>
+                <td>{{ actualite.id }}</td>
+                <td>{{ actualite.titre }}</td>
+                <td>{{ actualite.type }}</td>
+                <td>{{ actualite.date ? actualite.date|date('Y-m-d') : '' }}</td>
+                <td>{{ actualite.continu }}</td>
+                <td>
+                    <a href="{{ path('actualite_show', {'id': actualite.id}) }}"> <button class="btn btn-primary">show</button></a>
+                    <a href="{{ path('actualite_edit', {'id': actualite.id}) }}"> <button class="btn btn-primary">edit</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('actualite_new') }}"> <button class="btn btn-primary">create new</button></a>
+    
+{% endblock %}

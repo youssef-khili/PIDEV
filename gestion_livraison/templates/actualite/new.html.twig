@@ -1,0 +1,13 @@
+{% extends 'backoffcie.html.twig' %}
+
+{% block title %}New Actualite{% endblock %}
+
+{% block body %}
+    <h1>Create new Actualite</h1>
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+    {{ include('actualite/_form.html.twig') }}
+
+   
+
+    <a href="{{ path('actualite_index') }}"> <button class="btn btn-primary">back to liste</button></a>
+{% endblock %}

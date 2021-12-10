@@ -1,0 +1,104 @@
+{% extends 'backoffcie.html.twig' %}
+{% block body %}
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $( document ).ready(function() {
+                var currentRequest = null;
+                $("#search").keyup(function(e){
+                    var value = $(this).val();
+                    if(value =='')
+                    {
+                        currentRequest.abort()
+                    }
+                    else if(currentRequest != null) {
+                        currentRequest.abort();
+                    }
+                    currentRequest = $.ajax({
+                        url : "{{ path('ajaxsearchlivreur') }}",
+                        type : 'GET',
+                        data: {
+                            'searchValue' : value
+                        },
+                        success : function(retour)
+                        {
+                            $('#all').html(retour);
+
+                        },
+                    });
+                    return false;
+                });
+            });
+        </script>
+        <style type="text/css">
+            table {margin: 0 auto;}
+            table, th, td {
+                border: 2px #2b2b2b solid;
+                color: #2b2b2b;
+            }
+
+            table { background-color: #D3D3D3; }
+            th { background-color: #4169E1; }
+            a {
+                color: Black;
+            }
+
+        </style>
+
+    </head>
+    <body>
+
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+
+    <H1>List des livreurs</H1>
+    <td>
+        <a class="btn btn-success"href="{{ path('livreurtri') }}">trier ASC</a>
+    </td>
+    <td>
+        <a class="btn btn-success"href="{{ path('livreurtrii') }}">trier DESC</a>
+    </td>
+    <td>
+        <a class="btn btn-success"href="{{ path('livreur__list') }}">RECHERCHER UN LIVREUR:</a>
+    </td>
+
+    <table border="10">
+        <tr>
+            <th>Id_livreur:</th>
+            <th>Nom:</th>
+            <th>Prenom:</th>
+            <th>N° de tel:</th>
+            <th>N° cin:</th>
+            <th>Rate:</th>
+        </tr>
+        <tr {% for c in livreur %}>
+            <td>{{ c.id}}  </td>
+            <td>{{ c.nom}}  </td>
+            <td>{{ c.prenom}}</td>
+            <td>{{c.num_tel}}</td>
+            <td>{{c.cin}}</td>
+            <td>{{c.rate}}</td>
+            <td><a href=" {{ path('update',{'id':c.id })}}">update</a> </td>
+            <td><a href=" {{ path('d',{'id':c.id })}}">Delete</a> </td>
+        </tr {% endfor %}>
+    </table>
+
+    <td>
+        <a class="btn btn-success"href="{{ path('livreur_list') }}">TELECHARGER LES DONNEES EN PDF:</a>
+    </td>
+
+    </body>
+    </html>
+
+{% endblock %}

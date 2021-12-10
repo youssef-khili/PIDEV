@@ -1,0 +1,20 @@
+{% extends 'student/base-back.html.twig' %}
+
+{% block title %}GestionAbonnemnt{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h2>Bienvenue dans la section des Abonnements! ✅</h2>
+
+    Commençons par:
+    <ul>
+        <li>Afficher la liste des abonnements: <code><a href="{{ path('AfficheAbonnement') }}">Lien</a></code></li>
+        <li>Ajouter un nouveau abonnement: <code><a href="{{ path('AjoutAbonnement') }}">Lien</a></code></li>
+    </ul>
+</div>
+{% endblock %}

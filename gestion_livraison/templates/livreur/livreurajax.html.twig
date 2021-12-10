@@ -1,0 +1,12 @@
+{% block body %}
+<tr {% for livreur in livreurs %} >
+    <td>{{ livreur.id }}</td>
+    <td>{{ livreur.nom }}</td>
+    <td>{{ livreur.prenom }}</td>
+    <td>{{ livreur.num_tel }}</td>
+    <td>{{ livreur.cin }}</td>
+    <td>{{ livreur.rate }}</td>
+    <td><a type="button" class="btn btn-primary" href="{{ path('affiche_livreur')}}"><i >Details</i></a>
+        <a type="button" class="btn btn-success" href="{{ path('Update',{'id':livreur.id}) }}"><i >Modifier</i></a>
+        <a type="button" class="btn btn-danger" href="{{ path('Delete',{'id':livreur.id}) }}"><i >Supprimer</i></a></td>
+</tr{% endfor %}>

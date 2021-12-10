@@ -1,0 +1,43 @@
+{% extends 'student/base-back.html.twig' %} 
+    {% block body %}
+<h1>Ajout Abonnement</h1>
+
+ {{ form_start(form,{'attr': {'novalidate': 'novalidate'}}) }}
+  <div style="padding-left: 50px" class="">
+  <table>
+<tr>
+<td>{{ form_errors(form.prixAbonnement) }}</td>
+<td>{{ form_label(form.prixAbonnement,"prix") }}</td>
+<td>{{ form_widget(form.prixAbonnement) }}</td>           
+</tr>
+<tr>
+<td>{{ form_errors(form.dateDebut) }}</td>
+<td>{{ form_label(form.dateDebut,"Date_Debut") }}</td>
+<td>{{ form_widget(form.dateDebut) }}</td>           
+</tr>
+<tr>
+<td>{{ form_errors(form.dateFin) }}</td>
+<td>{{ form_label(form.dateFin,"Date_Fin") }}</td>
+<td>{{ form_widget(form.dateFin) }}</td>           
+</tr>
+<tr>
+<td>{{ form_errors(form.Remise) }}</td>
+<td>{{ form_label(form.Remise,"Remise") }}</td>
+<td>{{ form_widget(form.Remise) }}</td>           
+</tr>
+  </table>
+
+  <div>
+<button class="btn btn-success">
+{{ button_label|default('AjoutAbonnement') }}
+</button> 
+ <a href="{{ path('AfficheAbonnement') }} > retour </a>
+</div>
+
+<ul>
+<li><code><a href="{{ path('abonnement') }}">Annuler</a></code></li>
+</ul>
+ {{ form_end(form) }}
+</div>
+
+{% endblock %}

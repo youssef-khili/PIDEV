@@ -1,0 +1,37 @@
+{% extends 'front.html.twig' %}
+
+{% block title %}Actualite index{% endblock %}
+
+{% block body %}
+    <h1>Actualite index</h1>
+
+    <table class="table" border="2">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Titre</th>
+            <th>Type</th>
+            <th>Date</th>
+            <th>continu</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for actualite in actualites %}
+            <tr>
+                <td>{{ actualite.id }}</td>
+                <td>{{ actualite.titre }}</td>
+                <td>{{ actualite.type }}</td>
+                <td>{{ actualite.date ? actualite.date|date('Y-m-d') : '' }}</td>
+                 <td>{{ actualite.continu }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

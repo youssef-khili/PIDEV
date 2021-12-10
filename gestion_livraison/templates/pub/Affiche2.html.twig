@@ -1,0 +1,47 @@
+{%  extends 'front.html.twig'%}
+{% block body%}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form methode="post"  action="{{ path('rechercherdeg') }}">
+    <label>Recherche</label>
+    <input type="text" name="search"><input type="submit" value="Recherche" class="btn btn-info" >
+<table border="1">
+    <tr>
+        <th>idPub</th>
+        <th>Titre       </th>
+        <th>Description</th>
+        <th>Duree_Pub</th>
+        <th>Tarif</th>
+        <th>Update</th>
+        <th>Delete</th>
+
+
+
+    </tr>
+    <tr {% for p in Pub %}>
+        <td>{{ p.id }}</td>
+        <td>{{ p.titre }}</td>
+        <td>{{ p.description }}</td>
+        <td>{{ p.dureePub |date('Y-m-d')}}</td>
+        <td>{{ p.tarif }}</td>
+        <td> <a href="{{  path('Upp',{'id':p.id}) }}">Update</a></td>
+        <td> <a href="{{  path('Del',{'id':p.id}) }}">Delete</a></td>
+
+
+
+    </tr{% endfor %}  >
+    <a class="btn btn-primary btn-l text-uppercase" href="http://127.0.0.1:8000/pub/Add2">Ajouter Publicité</a>
+</table>
+
+
+</body>
+</html>
+{% endblock %}

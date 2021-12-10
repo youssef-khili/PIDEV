@@ -1,4 +1,4 @@
-{% extends 'back.html.twig' %}
+{% extends 'front.html.twig' %}
 {% block body %}
 <!doctype html>
 <html lang="en">
@@ -8,9 +8,29 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <style>
+        table{
+            margin-left: 500px;
+        }
+    </style>
+    <style type="text/css">
+        H1, table {margin: 0 auto;}
+        table, tr, td {
+            border: 2px #2b2b2b solid;
+            color: #2b2b2b;
+        }
+
+        table { background-color: #D3D3D3; }
+        tr { background-color: #FD6C9E; }
+        a {
+            color: Black;
+        }
+
+    </style>
 </head>
 <body>
-<H1>List des livraisons</H1>
+
+<H1>  LISTE DES LIVRAISONS DISPONIBLES :</H1>
 <table border="1">
     <tr>
         <th>Id_livraison:</th>
@@ -21,7 +41,7 @@
         <th>Poids unitaire::</th>
         <th>Tarif::</th>
     </tr>
-    <tr {% for c in livraison %}>
+    {% for c in livraison %}
         <td>{{ c.id}}  </td>
         <td>{{ c.depart}}  </td>
         <td>{{ c.arrive}}</td>
@@ -31,7 +51,8 @@
         <td>{{c.tarif}}</td>
         <td><a href=" {{ path('update',{'id':c.id })}}">update</a> </td>
         <td><a href=" {{ path('d',{'id':c.id })}}">Delete</a> </td>
-    </tr {% endfor %}>
+    {% endfor %}
+
 </table>
 </body>
 </html>

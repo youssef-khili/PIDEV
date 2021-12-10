@@ -1,0 +1,26 @@
+{% extends "front.html.twig"  %}
+ {% block body%}
+<h1> Ajout covoiturage </h1>
+{{ form_start(form, {'attr':{'novalidate':'novalidate'}})}}
+
+        {{ form_label(form.depart,"adresse du depart") }}
+        {{ form_widget(form.depart) }}
+
+        {{ form_label(form.arrive,"adresse d'arrivé ") }}
+        {{ form_widget(form.arrive) }}
+         {{ form_errors(form.arrive) }}
+        {{ form_label(form.tarif,"tarif") }}
+        {{ form_widget(form.tarif) }}
+        {{ form_label(form.longueurtrajet,"longueur du trajet") }}
+        {{ form_widget(form.longueurtrajet,) }}
+        {{ form_label(form.idveh,"id vehicule") }}
+        {{ form_widget(form.idveh) }}
+        {{ form_label(form.nbpsg,"nombre de passagers") }}
+
+          {{ form_widget(form.nbpsg) }}
+
+
+
+{{ form_end(form) }}
+
+{% endblock %}
